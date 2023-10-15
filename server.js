@@ -15,7 +15,8 @@ const updateController = require('./controller/updateController');
 
 require('./DB/connection');
 
-app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', 'https://e-commerce-for-food-delivery.netlify.app');
     // Other CORS headers as needed...
