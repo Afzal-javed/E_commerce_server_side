@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const app = express();
 const multer = require('multer');
+const bodyParser = require('body-parser');
 const path = require('path');
 const register = require('./controller/userSign');
 const login = require('./controller/userLogin');
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 dotenv.config();
 app.use(express.json());
 app.use(cors());
+app.use(bodyParser.json({ limit: '5mb' }));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
