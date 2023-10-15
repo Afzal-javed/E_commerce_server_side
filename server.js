@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 dotenv.config();
 app.use(express.json());
 app.use(cors());
-app.use(bodyParser.json({ limit: '5mb' }));
+app.use(bodyParser.json({ limit: '10mb' }));
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
