@@ -14,7 +14,11 @@ const updateController = require('./controller/updateController');
 
 require('./DB/connection');
 
-
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://e-commerce-for-food-delivery.netlify.app');
+    // Other CORS headers as needed...
+    next();
+});
 dotenv.config();
 app.use(express.json());
 app.use(cors());
